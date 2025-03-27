@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Boards</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body class="container mt-4">
+
+    <h1 class="text-primary text-center">Available Boards</h1>
+    <h3 class="text-secondary text-center">Explore the discussion boards:</h3>
+
+    {% if boards %}
+    <table class="table table-bordered table-striped table-hover shadow-sm">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Update</th>
+                <th>Created By</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            {% for board in boards %}
+            <tr>
+                <td><a href="?id={{ board.id }}" class="btn btn-outline-primary btn-sm">📌 {{ board.id }}</a></td>
+                <td>{{ board.name }}</td>
+                <td>{{ board.description }}</td>
+                <td><a href="{% url 'update_board' board.id %}" class="btn btn-outline-warning btn-sm">✏️ Update</a></td>
+                <td>
+                    <a href="?username={{ board.created_by }}" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-user"></i> {{ board.created_by }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr class="table-info">
+                <td colspan="5" class="text-center font-weight-bold">The number of boards is {{ num }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-warning text-center">No boards available.</div>
+    {% endif %}
+
+    <div class="text-center mt-3">
+        <a href="{% url 'home' %}" class="btn btn-success m-1">🏠 View Home</a>
+        <a href="{% url 'topics' %}" class="btn btn-info m-1">📌 View Topics</a>
+        <a href="{% url 'posts' %}" class="btn btn-warning m-1">📝 View Posts</a>
+        <a href="{% url 'add_board' %}" class="btn btn-primary m-1">➕ Add New Board</a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <ul class="pagination">
+            {% if boards.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">« First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ boards.previous_page_number }}">‹ Previous</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link">Page {{ boards.number }} of {{ boards.paginator.num_pages }}</span>
+            </li>
+
+            {% if boards.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ boards.next_page_number }}">Next ›</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ boards.paginator.num_pages }}">Last »</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>

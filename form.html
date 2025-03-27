@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <!--
+    name اسم اللى هيتبعت قبل البيانات لما ابعتها للباك
+    getالبيانات اللى بعتها هتظهر ف url
+    post الببيانات اللى بعتها مش هتظهر فى url
+    value in gmail قيمه ثابته فى الحقل دا
+    color filedبيتبعت الهكسا بتاع اللون اللى اخترته
+    value in submit and rest الكلمه اللى هتظهر لما اضغط عليها اضيف او امسح
+    Autofocus بخلى المؤشر يقف عند حقل معين اول ما يفتح الصفحه
+    minlengthاقل عدد الحروف اللى المستخدم ممكن يكتبها فى الحقل
+    maxlengthاكبر عدد من الحروف اللى المتسخدم ممكن يكتبها ف الحقل
+    value attributeالقيمه اللى فيها هيا اللى هتتبعت للباك لو اخترت الحقل 
+    NoValidate form attribtu بيبعت اللى كتبته ايا كان بعيد عن شروطى
+    target_blank form attribtu لما اعمل حفظ بيحفظ البيانات فى نفس الصفحه ويبعتنى صفحه جديده
+
+
+    -->
+    <div>
+        <form action="" method="POST" novalidate target="_blank"><!--بكتب جوا المكان اللى البيانات هتروحله لما اعمل save-->
+            <h1>login</h1>
+            <hr>
+            <div>
+                <h2>
+                    <label>creator</label>
+                    <input 
+                    type="text"
+                    readonly 
+                    value="ebrahim alfeky" 
+                    name="maker"  
+                    >
+                    <!--
+                    حقل البيانات اللى فيه بتتبعت عادى لكنه ثابت لا يمكن تعديله 
+                    للقراءه فقط
+                    -->
+                </h2>
+            </div>
+            <div>
+                <h2>
+                    <label>shit</label>
+                    <input 
+                    type="text" 
+                    disabled 
+                    value="fuck you" 
+                    name="shit"  
+                    >
+                    <!--
+                    حقل بيانات البيانات اللى فيه مقدرش اعدل عليها ومش بتتبعت
+                    -->
+                </h2>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label >username</label>
+                    <input 
+                    type="text" 
+                    required 
+                    placeholder=" yourusername" 
+                    name="Name" 
+                    autofocus 
+                    minlength="10" 
+                    maxlength="20" 
+                    >
+                </h3>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label>password</label>
+                    <input 
+                    type="password" 
+                    required ="required" 
+                    placeholder="your password" 
+                    name="Pass" 
+                    minlength="10" 
+                    maxlength="20" 
+                    >
+                </h3>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label >subject</label>
+                    <input 
+                    type="text" 
+                    placeholder="your subject" 
+                    name="Sub"
+                    >
+                </h3>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label >gmail</label>
+                    <input 
+                    type="email" 
+                    required 
+                    placeholder="your gmail" 
+                    value="ebrahim@gmail.com" 
+                    name="Gmail"
+                    >    
+                </h3>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label >color</label>
+                    <input 
+                    type="color" 
+                    name="Color" 
+                    >
+                </h3>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label>range</label>
+                    <input 
+                    type="range" 
+                    name="Range" 
+                    min="0" 
+                    max="150" 
+                    step="30" 
+                    value="0" 
+                    >
+                    <!--
+                    stepالخطوه بكام وحده
+                    value يبدا من كام
+                    -->
+                </h3>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label>number</label>
+                    <input 
+                    type="number" 
+                    name="Number" 
+                    min="20" 
+                    max="200" 
+                    step="20" 
+                    value="0" 
+                    >
+                    <!--
+                    حقل يقبل ارقام فقط فى الرنج اللى حددته
+                    stepالخطوه بكام وحده
+                    value يبدا من كام
+                    -->
+                </h3>
+            </div>
+            <h3>opreating system</h3>
+            <br>
+            <div>
+                <div>
+                    <input 
+                    id="win" 
+                    type="radio"
+                    name="OS" 
+                    value="WINDOWS"
+                    checked
+                    >
+                    <!--
+                    valueالقيمه اللى فيها هيا اللى هتتبعت للباك لو اخترت الاختيار دا
+                    checkedبتحدد اختيار مبداى يمكن تغييره
+                    -->
+                    <label for="win">windows</label>
+                </div>
+                <hr>
+                <div>
+                    <input 
+                    id="lin" 
+                    type="radio"
+                    name="OS" 
+                    value="LINUX"
+                    >
+                    <label for="lin">linux</label>
+                </div>
+                <hr>
+                <div>
+                    <input 
+                    id="mac" 
+                    type="radio"
+                    name="OS" 
+                    value="MAC"
+                    >
+                    <label for="mac">mac</label>
+                </div>
+            </div>
+            <br><br><br>
+            <div>
+                <h3>languages</h3>
+                <div>
+                    <input 
+                    id="java"
+                    type="checkbox" 
+                    name="programing laguages"
+                    value="JAVA"
+                    >
+                    <label for="java">java</label>
+                </div>
+                <hr>
+                <div>
+                    
+                    <input
+                    id="c++"
+                    type="checkbox"
+                    name="programing laguages"
+                    value="C++"
+                    checked
+                    >
+                    <label for="c++">c++</label>
+                </div>
+                <hr>
+                <div>
+                    <input
+                    id="css" 
+                    type="checkbox"                    
+                    name="programing laguages"
+                    value="CSS"
+                    >
+                    <label for="css">css</label>
+                </div>
+                <hr>
+                <div>
+                    <input
+                    id="html" 
+                    type="checkbox"
+                    name="programing laguages"
+                    value="HTML"
+                    >
+                    <Label for="html">html</Label>
+                </div>
+                <hr>
+                <div>
+                    <input
+                    id="python" 
+                    type="checkbox"
+                    name="programing laguages"
+                    value="PYTHON"
+                    >
+                    <label for="python">python</label>
+                </div>
+                <hr>
+                <div>
+                    <input
+                    id="c#" 
+                    type="checkbox"
+                    name="programing laguages"
+                    value="C#"
+                    >
+                    <label for="c#">c#</label>
+                </div>
+                <hr>
+                <div>
+                    <input
+                    id="c" 
+                    type="checkbox"
+                    name="programing laguages"
+                    value="C"
+                    >
+                    <label for="c">c</label>
+                </div>
+                <hr>
+            </div>
+            <br>
+            <div>
+                <label for="country">selsect your country</label>
+                <select name="country" id="country" multiple >
+                    <optgroup label="123" >
+                        <option value="COUNTRY1">country1</option>
+                        <option value="COUNTRY2">country2</option>
+                        <option value="COUNTRY3">country3</option>
+                    </optgroup>
+                    <hr>
+                    <optgroup label="456" >
+                        <option value="COUNTRY4" >country4</option>
+                        <option value="COUNTRY5">country5</option>
+                        <option value="COUNTRY6" selected>country6</option>
+                    </optgroup>
+                </select>
+            </div>
+            <br>
+            <div>
+                <LAbel for="txt" >write your opininom here:</LAbel>
+                <textarea 
+                name="OPINION"id="txt"placeholder="your opinion"cols="15"rows="15"required></textarea>
+            </div>
+            <br>
+            <div>
+                <label for="">upload your file</label>
+                <input type="file" name="FILE">
+            </div>
+            <br>
+            <div>
+                <label for="">search</label>
+                <input type="search" placeholder="what are in your mind?"name="SEARCH" >
+            </div>
+            <br>
+            <div>
+                <label for="">enter url to search:</label>
+                <input type="url" placeholder="https://..." name="URL">
+            </div>
+            <!--accept links only-->
+            <br>
+            <div>
+                <label for="">enter immidiate time</label>
+                <input type="time"  name="TIME">
+            </div>
+            <br>
+            <div>
+                <label for="">enter date of today</label>
+                <input type="date" name="DATE">
+            </div>
+            <br>
+            <div>
+                <label for="">enter month </label>
+                <input type="month" name="MONTH">
+            </div>
+            <br>
+            <div>
+                <label for="">languages</label>
+                <input list="programing" name="languages">
+                <datalist id="programing" >
+                    <option value="c"></option>
+                    <option value="c#"></option>
+                    <option value="c++"></option>
+                    <option value="css"></option>                        
+                </datalist>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label >submit</label>
+                    <input 
+                    type="submit" 
+                    value="save" 
+                    >
+                </h3>
+            </div>
+            <br>
+            <div>
+                <h3>
+                    <label >rest</label>
+                    <input 
+                    type="reset" 
+                    value="delete" 
+                    >
+                </h3>
+            </div>
+            <br>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7da;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #721c24;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You don't have permission to update this !</h1>
+        <a href="{% url "boards" %}">🔙 Go to boards</a>
+        <a href="{% url "topics" %}">🔙 Go to topics</a>
+        <a href="{% url "posts" %}">🔙 Go to posts</a>
+    </div>
+</body>
+</html>

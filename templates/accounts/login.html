@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #3498db, #8e44ad);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    h2 {
+      color: #7f8c8d;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      width: 100%;
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7f8c8d;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 12px 12px 40px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #bdc3c7;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #3498db;
+      outline: none;
+      box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+    }
+
+    button {
+      background: linear-gradient(90deg, #3498db, #8e44ad);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #2980b9, #6c3483);
+      transform: scale(1.05);
+    }
+
+    .home-button {
+      display: block;
+      text-align: center;
+      background: #2ecc71;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .home-button:hover {
+      background: #27ae60;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Log in</h1>
+    <h2>Enter your data</h2>
+
+    {% if error %}
+      <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" novalidate>
+      {% csrf_token %}
+
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" id="id_username" placeholder="Username" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" id="id_password" placeholder="Password" required>
+      </div>
+
+      <button type="submit">Log in</button>
+    </form>
+
+    <br>
+    <a href="{% url 'home' %}" class="home-button">View Home</a>
+    <br>
+    <a href="{% url 'signup' %}" class="home-button">Create New Account</a>
+  </div>
+
+</body>
+</html>

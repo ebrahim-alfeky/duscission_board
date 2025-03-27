@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Topic Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow-lg rounded">
+            <div class="card-header bg-info text-white text-center">
+                <h2>Topic Details</h2>
+            </div>
+            <div class="card-body">
+                <h3 class="text-info">{{ my_topic.subject }}</h3>
+                <p class="text-muted"><strong>ID:</strong> {{ my_topic.id }}</p>
+                <p><strong>Board:</strong> {{ my_topic.board }}</p>
+                <p><strong>Created By:</strong> {{ my_topic.created_by }}</p>
+                <p><strong>Created Date:</strong> {{ my_topic.created_date }}</p>
+
+                <h4 class="mt-4">Posts:</h4>
+                <ul class="list-group">
+                    {% for post in my_topic.posts.all %}
+                        <li class="list-group-item">
+                            <strong>{{ post.created_by.username }}:</strong> {{ post.message }}
+                            <span class="text-muted float-end">{{ post.created_date }}</span>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item text-muted">No posts yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="card-footer text-center">
+                <a href="{% url 'topics' %}" class="btn btn-secondary">Back to all topics</a>
+                <a href="{% url 'update_topic' my_topic.id %}" class="btn btn-secondary">update</a>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
